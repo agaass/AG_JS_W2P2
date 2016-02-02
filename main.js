@@ -3,9 +3,28 @@
 // 1. Output each item in the following Array to your console:
 var livingRoom = ['couch', 'lamp', 'rug', 'shelf'];
 
+
+for(i=0; i<livingRoom.length; i++) {
+  console.log(livingRoom[i]);
+}
+
 // 2. Using a loop, log numbers 22-33 in the console.
 
+for(i=22; i<=33; i++) {
+  console.log(i);
+}
+
+var counter = 22;
+while (counter < 34) {
+  console.log(counter)
+  counter++;
+}
+
 // 3. Using a similar loop, log numbers 75 to 100, only in increments of five.
+for(i=75; i <= 100; i+=5) {
+  console.log(i);
+}
+
 
 // 4. Write a while loop that logs "This is how a professional loops." to the console 5 times.
 //     Use this as an example:
@@ -19,24 +38,92 @@ var livingRoom = ['couch', 'lamp', 'rug', 'shelf'];
 
 //        console.log(counter);
 
+
+var counter = 0;
+
+while (counter < 5) {
+  console.log("This is how we do it!");
+  counter++;
+}
+​
+
 // 5. Write a conditional statement to find the largest of the numbers in the array provided.
 var largestNum = [-5, -2, -6, 0, -1]
+
+var big = largestNum[0];
+
+for(i=0; i<largestNum.length; i++){
+  if(largestNum[i] > big){
+    big = largestNum[i]
+  }
+}
+console.log(big);
+
 
 // 6. Separately, use both a for loop and while loop to do the same thing.
 //     Print out the sentence "At home, I have _____ cats." Use the number from your counter to fill in the number.
 //     The numbers should range from 10 to 100, in increments of 25.
+
+
+for(i=10; i<101; i+=25){
+  console.log("At home, I have "+ i +" cats.");
+}
+
+var counter = 10;
+while(counter<101){
+  console.log("At home, I have "+counter+" cats.");
+  counter += 25;
+}
 
 // 7. Given the following Array, console log 'Even' if the number is even, 'Even and greater than 10' if the
 //    number is even and greater than 10, and 'Odd' if the number is odd.
 //    HINT: Google 'remainder operator'
 var numArray = [2, 17, 9, 24, 8];
 
+for(i=0; i<numArray.length; i++){
+  var num = numArray[i];
+
+  if((num % 2 == 0) && (num>10)){
+    console.log("Even and greater than 10");
+  }
+  else if(num % 2 == 0){
+    console.log("Even");
+  }
+  else{
+    console.log("Odd");
+  }
+}
+
+
 // 8. Given the following Array, create variable primeArray with the value [2, 7, 17, 29, 41, 53, 67, 79, 97]
 var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,];
 var primeArray = [];
 
+
+
+for(i=0; i<primes.length; i+=3){
+  primeArray.push(primes[i]);
+}
+console.log(primeArray);
+
+
 // 9. Prompt a user to pick either a number or a word. Create a script that alerts the user whether they chose a number or a word.
 // Hint: Google 'typeof'
+
+
+var choice = prompt("Enter a number or word");
+
+if(isNaN(choice) === false){
+  console.log('You entered the number '+choice);
+}
+else if (typeof(choice) === "string"){
+  console.log('You entered the string '+choice);
+}
+else {
+  console.log('Please enter either a number or a word');
+  var choice = prompt("Enter a number or word");
+}
+
 
 // 10. Write a loop that outputs the following to the console:
 // #
@@ -48,15 +135,84 @@ var primeArray = [];
 // #######
 
 
+var pound = "";
+for(i=0;i<7;i++) {
+  pound += "#";
+  console.log(pound);
+}
+
+
+
+var count = 0;
+var pound = "#";
+
+while(count < 8){
+  console.log(pound)
+  pound = pound + "#"
+  count++
+}
+
+
+
 // RO SHAM BO!
 // We're going to create a paper, rock, scissors game that prompts you for your choice and allows the computer to
 // randomly choose. You will use an alert to define the winner.
 
 // 11. Use a variable called "human" to prompt the user to type their choice.
+var human = prompt("rock, paper or scissors??");
+console.log("User choice: " + human);
+
 // 12. Define an array called "choices" that consists of "paper", "rock", and "scissors".
+
+var choices = ["rock", "paper", "scissors"];
 // 13. Define a variable called "computer" and use Math.random to allow the computer to randomly select a number.
 //    For reference:
 //    Math.random gives you a random number between 0 and 1, which is different each time you call it.
+
+var computer = Math.random();
+
+if(0 < computer <= .33){
+  computer = choices[0];
+}
+else if (.33 < computer <= .66){
+  computer = choices[1];
+}
+else if (.66 < computer < 1){
+  computer = choices[2];
+}
+console.log("Computer choice: "+computer);
+
+if(human === "rock"){
+  if(computer === "rock"){
+    console.log("Tie !");
+  } else if(computer === "paper"){
+    console.log("Computer wins !");
+  } else {
+    console.log("User wins !");
+  }
+}
+else if(human === "paper"){
+  if(computer === "paper"){
+    console.log("Tie !");
+  } else if(computer === "scissors"){
+    console.log("Computer wins !");
+  } else {
+    console.log("User wins !");
+  }
+}
+else if(human === "scissors"){
+  if(computer === "scissors"){
+    console.log("Tie !");
+  } else if(computer === "rock"){
+    console.log("Computer wins !");
+  } else {
+    console.log("User wins !");
+  }
+}
+else{
+  human = prompt("Please choose either rock, paper or scissors");
+}
+
 // 14. Let's start our conditional statement. Start by reassigning the computer variable to "rock" if the random number
 //    falls between 0 and .33. Run the code until the console prints out "rock" instead of the number.
 //    In English, it will look like this:
@@ -64,6 +220,8 @@ var primeArray = [];
 //       if the number is between 0 and 33
 //          computer = "rock"
 //       log computer to the console
+
+
 // 15. Now add the following conditionals to the same statement:
 //    If the random number is between .34 and .66, set the computer variable to "paper".
 //    If the random number is between .67 and 1, set the computer variable to "scissors". (Who the hell seriously chooses scissors first?)
@@ -91,12 +249,46 @@ var primeArray = [];
 //     Calling Math.floor on that number will truncate the decimal, and give you a
 //     random number within the bounds of your array. (In this case, our array will only contain two items.)
 // 22. Use a while loop to keep flipping the coin until you get tails.
+var result = "heads";
+while(result === "heads") {
+  var coin = Math.floor(Math.random() * 2);
+  if(coin === 1){
+    result = "heads";
+    console.log("Heads..bummer..");
+  }
+  else {
+    result = "tails";
+    console.log("Hurray, you got tails!");
+  }
+};
 
 // 23. FIZZ BUZZ
 // Write a program that uses console.log to print each number up to 100, with a couple exceptions...
 // If the number is divisible by 3, print "Fizz" instead of the number.
 // If the number is divisible by 5, print "Buzz" instead of the number.
 // If the number is divisible by both 3 and 5, print "FizzBuzz" instead of the number.
+
+(function (){
+    var array = [];
+
+    for (var i = 1; i <= 100; i++) {
+        array.push(i);
+
+        if (i % 3 === 0) {
+            array.splice(i - 1, 1, 'Fizz');
+        }
+
+        if (i % 5 === 0) {
+            array.splice(i - 1, 1, 'Buzz');
+        }
+
+        if (i % 15 === 0) {
+            array.splice(i - 1, 1, 'FizzBuzz');
+        }
+    }
+
+    console.log(array);
+})();
 
 
 // CHESS BOARD
